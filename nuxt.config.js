@@ -33,6 +33,7 @@ export default {
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~/plugins/firebase.js'
   ],
 
   /*
@@ -43,7 +44,8 @@ export default {
     '@nuxtjs/axios',
     // Doc:https://github.com/nuxt-community/modules/tree/master/packages/bulma
     '@nuxtjs/bulma',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv'
   ],
   /*
   ** Axios module configuration
@@ -55,27 +57,33 @@ export default {
   /*
   ** Build configuration
   */
-  build: {
-    postcss: {
-      preset: {
-        features: {
-          customProperties: false
-        }
-      }
-    },
-    /*
-    ** You can extend webpack config here
-    */
-    extend(config, ctx) {
-      // Run ESLint on save
-      if (ctx.isDev && ctx.isClient) {
-        config.module.rules.push({
-          enforce: 'pre',
-          test: /\.(js|vue)$/,
-          loader: 'eslint-loader',
-          exclude: /(node_modules)/
-        })
-      }
-    }
-  }
+  // build: {
+  //   postcss: {
+  //     preset: {
+  //       features: {
+  //         customProperties: false
+  //       }
+  //     }
+  //   },
+  //   /*
+  //   ** You can extend webpack config here
+  //   */
+  //   extend(config, ctx) {
+  //     // Run ESLint on save
+  //     if (ctx.isDev && ctx.isClient) {
+  //       config.module.rules.push({
+  //         enforce: 'pre',
+  //         test: /\.(js|vue)$/,
+  //         loader: 'eslint-loader',
+  //         exclude: /(node_modules)/
+  //       })
+  //     }
+  //   }
+  // },
+  // rules: {
+  //   "semi": [2, "never"],
+  //   "no-console": "off",
+  //   "vue/max-attributes-per-line": "off",
+  //   "prettier/prettier": ["error", { "semi": false }]
+  // }
 }
